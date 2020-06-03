@@ -18,7 +18,7 @@ namespace Program0603_2
         {
             public Node rootNode = null;//define rootnode 
             
-            public void Insert(int value)//create a binary tree
+            public void Add(int value)//create a binary tree
                 {
                     Node Parent;
                     Node newNode = new Node();
@@ -89,12 +89,12 @@ namespace Program0603_2
         {
             Console.WriteLine("Tree");
             BST nodetree = new BST();
-            nodetree.Insert(10);//create a BinarySearchTree
-            nodetree.Insert(5);
-            nodetree.Insert(15);
-            nodetree.Insert(6);
-            nodetree.Insert(4);
-            nodetree.Insert(20);                   
+            nodetree.Add(10);//create a BinarySearchTree
+            nodetree.Add(5);
+            nodetree.Add(15);
+            nodetree.Add(6);
+            nodetree.Add(4);
+            nodetree.Add(20);                   
                     /* The Binaryserachtree will look like this:
                      *            (10)
                      *           /    \
