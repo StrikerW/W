@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            string[] str = new string[]{"acrct","aABCAB","AB","CCC","DDD","ABCDEFG","abcdef" };//DATA SOURCE
+            // return the length of each element;
+            var length =
+                from s in str
+                select s.Length;
+            //return length less than 5
+            var num =
+                from s in str
+                where s.Length < 5
+                select s;
+            //select many
+            List<int> list = new List<int>() {1};
+            var query = list.SelectMany(o=>str);
+            //find if any strings have a
+            bool Any_Finda = str.Any(s=>s.Contains("a"));
+            //find if all strings have a
+            bool All_Finda = str.All(s => s.Contains("a"));
+            //First with capitalized letter
+            var query2 =
+            from n in str
+            from nn in n
+            where char.IsUpper(nn)
+            select n;
+            string fir = query2.First();
+            //string las = str.Last;
+            string las = query2.Last();
+            //order 
+            var or = from n in str
+                          orderby n.Length
+                          select n;
+
+
+
+
+            Console.WriteLine("length of elements");
+            foreach(int n in length)
+            {              
+                Console.WriteLine(n);
+            }
+            Console.WriteLine("less than 5");
+            foreach (string n in num)
+            { 
+                Console.WriteLine(n);
+            }
+            Console.WriteLine("selectmany");
+            foreach(var q in query) 
+            { 
+                Console.WriteLine("{0}",q);
+            }
+            Console.WriteLine("if any stirngs have a? {0}     ",Any_Finda);
+            Console.WriteLine("if all the strings have a?  {0}",All_Finda);
+            Console.WriteLine("First string with capitialized letter {0}", fir);
+            Console.WriteLine("Last string with capitilalized letter {0}", las);
+            foreach(var o in or)
+            {
+                Console.WriteLine(o);
+
+            }
+
+
+
+
+        }
+    }
+}
